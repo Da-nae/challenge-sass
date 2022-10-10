@@ -1,0 +1,128 @@
+@import "variable.scss";
+
+@mixin shadow {
+    -webkit-box-shadow: 10px 10px 15px -4px $shadow-color;
+    -moz-box-shadow: 10px 10px 15px -4px $shadow-color;
+    box-shadow: 10px 10px 15px -4px $shadow-color;
+}
+
+@for $i from 1 through 6 {
+    .adv-item:nth-child(3n + #{$i}) {
+      background-color: lighten($title-color, $i * 5%);
+    }
+}
+
+body {
+    font-family: 100% "Space Mono", monospace;
+    color: $font-color;
+    margin: 0;
+    padding: 0;
+    background-color: $bg-color;
+    overflow-x: hidden;
+}
+
+main {
+    padding: $padding -$padding;
+}
+
+article {
+    display: flex;
+    flex-wrap: wrap;
+
+    section {
+        flex-grow: 1;
+        flex-basis: 45%;
+        border: 1px $border-color solid;
+        padding: $padding;
+        margin: 16px;
+        clear: both;
+        overflow: auto;
+        box-sizing: border-box;
+        @include shadow;
+        #selling-points {
+            flex-grow: 2;
+            flex-basis: 100%;
+        }
+    }
+
+    code {
+        background: $code-bg;
+        border: 1px solid $shadow-color;
+        color: $border-color;
+        page-break-inside: avoid;
+        font-family: monospace;
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 1.6em;
+        max-width: 100%;
+        overflow: auto;
+        padding: $padding;
+        display: block;
+        word-wrap: break-word;
+    }
+
+    code.before {
+        float: left;
+        width: 40%;
+    }
+
+    code.after {
+        float: right;
+        width: 40%;
+    }
+
+}
+
+h1, h2, h3 {
+    color: $title-color;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+    font-size: 1.5em;
+    padding: $padding;
+    margin-bottom: 0px;
+}
+
+footer {
+    h3 {
+        padding: $padding + $padding;
+    }
+}
+
+.messages {
+    padding: $padding;
+}
+
+%message {
+    border: 1px solid #8C8C8C;
+    padding: 16px;
+    color: $bg-color;
+}
+
+.success {
+    background-color: $success-color;
+    @extend %message;
+}
+
+.error {
+    background-color: $error-color;
+    @extend %message;
+
+    &:hover {
+        background-color: green;
+    }
+}
+
+.warning {
+    background-color: $warning-color;
+    @extend %message;
+}
+
+
+
+
