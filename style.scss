@@ -6,12 +6,6 @@
     box-shadow: 10px 10px 15px -4px $shadow-color;
 }
 
-@for $i from 1 through 6 {
-    .adv-item:nth-child(3n + #{$i}) {
-      background-color: lighten($title-color, $i * 5%);
-    }
-}
-
 body {
     font-family: 100% "Space Mono", monospace;
     color: $font-color;
@@ -22,7 +16,7 @@ body {
 }
 
 main {
-    padding: $padding -$padding;
+    padding: $padding - $padding;
 }
 
 article {
@@ -123,6 +117,12 @@ footer {
     @extend %message;
 }
 
+@for $i from 1 through 6 {
+    .adv-item:nth-child(6n + #{$i}) {
+      background-color: lighten($title-color, $i * 5%);
+      color: darken($error-color,$i * 5%);
+    }
+}
 
 
 
